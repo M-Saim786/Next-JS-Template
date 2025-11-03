@@ -16,6 +16,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { useRouter } from "next/navigation"
 
 type LoginFormInputs = {
   email: string
@@ -29,6 +30,7 @@ type SignupFormInputs = {
 }
 
 export default function DummyAuthPage() {
+  const router = useRouter()
   const [activeTab, setActiveTab] = useState<"login" | "signup">("login")
   const [showLoginPassword, setShowLoginPassword] = useState(false)
   const [showSignupPassword, setShowSignupPassword] = useState(false)
@@ -43,6 +45,8 @@ export default function DummyAuthPage() {
   const onLogin = (data: LoginFormInputs) => {
     console.log("Dummy login data:", data)
     toast.success("Logged in successfully (dummy)")
+    router.push("/dashboard")
+
   }
 
   // --- Signup form ---
@@ -55,6 +59,8 @@ export default function DummyAuthPage() {
   const onSignup = (data: SignupFormInputs) => {
     console.log("Dummy signup data:", data)
     toast.success("Account created successfully (dummy)")
+    router.push("/auth/verify-otp")
+
   }
 
   return (
@@ -64,17 +70,13 @@ export default function DummyAuthPage() {
         <div className="rounded-full bg-primary p-3">
           <Heart className="h-8 w-8 text-primary-foreground" />
         </div>
-        <h1 className="text-4xl font-bold text-foreground">Health Vault</h1>
-        <p className="text-center text-muted-foreground">
-          Your Personal Medical Records Manager
-        </p>
+        <h1 className="text-4xl font-bold text-foreground">Brand Name</h1>
       </div>
 
       {/* Card */}
       <Card className="w-full max-w-md">
         <CardHeader>
           <CardTitle>Welcome</CardTitle>
-          <CardDescription>Manage your health records securely</CardDescription>
         </CardHeader>
         <CardContent>
           <Tabs

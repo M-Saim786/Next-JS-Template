@@ -11,7 +11,7 @@ export function DashboardHeader({ user, onLogout }: { user: any; onLogout: () =>
           <div className="rounded-lg bg-primary p-2">
             <Heart className="h-6 w-6 text-primary-foreground" />
           </div>
-          <h1 className="text-2xl font-bold">Health Vault</h1>
+          <h1 className="text-2xl font-bold">Brand Name</h1>
         </div>
         <div className="flex items-center gap-4">
           <span className="text-sm text-muted-foreground">Welcome, {user?.name}</span>

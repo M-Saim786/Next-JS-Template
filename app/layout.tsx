@@ -20,8 +20,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Health Vault",
-  description: "Health Vault",
+  title: "Next js Starter",
+  description: "Next js Starter",
 };
 
 export default function RootLayout({

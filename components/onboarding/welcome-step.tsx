@@ -8,7 +8,7 @@ export function WelcomeStep({ user }: { user: any }) {
     <Card>
       <CardHeader>
         <CardTitle>Welcome, {user?.name}!</CardTitle>
-        <CardDescription>Let's set up your health vault</CardDescription>
+        <CardDescription>Let's set up your brand name</CardDescription>
       </CardHeader>
       <CardContent className="space-y-6">
         <p className="text-foreground">

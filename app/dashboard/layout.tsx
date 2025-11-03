@@ -30,10 +30,7 @@ const DUMMY_USER = {
 // ──────────────────────────────────────────────────────────────
 const NAV_ITEMS = [
   { href: "/dashboard", icon: Home, label: "Home" },
-  { href: "/dashboard/timeline", icon: CalendarDays, label: "Timeline" },
-  { href: "/dashboard/reports", icon: FileUp, label: "Reports" },
-  { href: "/dashboard/vitals", icon: HeartPulse, label: "Vitals" },
-  { href: "/dashboard/analytics", icon: BarChart3, label: "Analytics" },
+  { href: "/dashboard/page2", icon: CalendarDays, label: "Page 2" },
 ];
 
 export default function DashboardLayout({
@@ -115,7 +112,7 @@ function SidebarContent({
       <div className="flex h-16 items-center justify-center border-b px-4">
         <Link href="/dashboard" className="flex items-center gap-2 font-bold">
           <HeartPulse className="h-7 w-7 text-primary" />
-          <span>Health Vault</span>
+          <span>Brand Name</span>
         </Link>
       </div>
 

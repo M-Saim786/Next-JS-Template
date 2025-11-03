@@ -5,10 +5,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { FileUp, BarChart3, Calendar } from "lucide-react"
 import { DashboardHeader } from "./dashboard-header"
-import { ReportsList } from "./reports-list"
-// import { TimelineView } from "./timeline-view"
-// import { AddVitalsModal } from "./add-vitals-modal"
-// import { UploadReportModal } from "./upload-report-modal"
 import { useRouter } from "next/navigation"
 
 export function Dashboard() {
@@ -18,28 +14,7 @@ export function Dashboard() {
   const [vitals, setVitals] = useState<any[]>([])
   const router = useRouter()
   // Load data from localStorage
-  const loadData = () => {
-    const savedData = localStorage.getItem("healthVaultData")
-    if (savedData) {
-      const data = JSON.parse(savedData)
-      if (data.vitals) {
-        setVitals([data.vitals])
-      }
-    }
-  }
 
-  // Load on mount
-  if (vitals.length === 0) {
-    loadData()
-  }
-
-  const handleReportUploaded = (report: any) => {
-    setReports([...reports, report])
-  }
-
-  const handleVitalAdded = (vital: any) => {
-    setVitals([...vitals, vital])
-  }
   const user = JSON.parse(localStorage.getItem("user")!)
   const onLogout = () => {
     console.log("logout user")
@@ -95,7 +70,7 @@ export function Dashboard() {
           </TabsContent>
 
           <TabsContent value="reports" className="space-y-4">
-            <ReportsList reports={reports} />
+            {/* <ReportsList reports={reports} /> */}
           </TabsContent>
 
           <TabsContent value="vitals" className="space-y-4">

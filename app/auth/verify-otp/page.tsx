@@ -22,7 +22,7 @@ export default function VerifyOTPScreen() {
     const searchParams = useSearchParams()
     //   const token = searchParams.get("token") || ""
 
-    const [countdown, setCountdown] = useState(60)
+    const [countdown, setCountdown] = useState(5)
     const [canResend, setCanResend] = useState(false)
     const intervalRef = useRef<NodeJS.Timeout | null>(null)
     const inputRefs = useRef<(HTMLInputElement | null)[]>([])
@@ -38,7 +38,7 @@ export default function VerifyOTPScreen() {
     })
 
     const verifyMutation = useVerifyOTP()
-    const resendMutation = useResendOTP()
+    // const resendMutation = useResendOTP()
 
     const otpInputs = Array(6).fill(0)
     const watchedOtp = watch("otp", "")
@@ -66,7 +66,6 @@ export default function VerifyOTPScreen() {
     const onSubmit = async (data: OTPFormInputs) => {
 
         try {
-            await verifyMutation.mutateAsync({ otp: data.otp })
             toast.success("OTP verified! Welcome!")
             router.push("/onboarding")
         } catch (err: any) {
@@ -78,7 +77,7 @@ export default function VerifyOTPScreen() {
 
     const handleResend = async () => {
         try {
-            await resendMutation.mutateAsync()
+            // await resendMutation.mutateAsync()
             toast.success("New OTP sent!")
             setCountdown(60)
             setCanResend(false)
